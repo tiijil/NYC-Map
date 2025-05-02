@@ -6,7 +6,8 @@ export const fetchTaxiDataChunk = createAsyncThunk(
   async (chunkIndex) => {
     try {
       const paddedIndex = String(chunkIndex).padStart(5, '0');
-      const response = await fetch(`/data/chunks/chunk-${paddedIndex}.json`);
+      // Updated URL to fetch from GitHub Pages instead of local files
+      const response = await fetch(`https://tiijil.github.io/nyc-map-data/data/chunks/chunk-${paddedIndex}.json`);
       if (!response.ok) {
         throw new Error(`Failed to fetch chunk ${chunkIndex}`);
       }
